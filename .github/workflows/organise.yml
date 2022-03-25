@@ -51,10 +51,9 @@ jobs:
         
     - name: Upload Files Folder
       uses: actions/upload-artifact@main
-      if: steps.generate.outputs.GENERATE_STATUS == 'success'
       with:
-        name: bin-archive
-        path: /home/runner/work/Annie-Packages/Annie-Packages/files/
+        name: Files
+        path: files
 
   Upload:
     needs: [Organise]
@@ -64,12 +63,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@main
         
-      - name: Download Bin Folder
+      - name: Download File Folder
         uses: actions/download-artifact@v2
         if: env.GENERATE_STATUS == 'success'
         with:
           name: bin-archive
-          path: /home/runner/work/Annie-Packages/Annie-Packages/files/
+          path: files
           
       - name: Generate release tag
         id: tag
@@ -90,4 +89,4 @@ jobs:
           name: ${{ steps.tag.outputs.release_date }}
           tag_name: ${{ steps.tag.outputs.release_tag }}
           body_path: release.txt
-          files: /home/runner/work/Annie-Packages/Annie-Packages/files/*
+          files: /files/*
