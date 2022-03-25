@@ -24,6 +24,7 @@ jobs:
         sudo -E apt-get -qq clean
         sudo timedatectl set-timezone "Asia/Shanghai"
         sudo apt-get update -y
+        sudo apt-get install jq
         
     - name: Oragnise Files
       run: |
@@ -31,9 +32,8 @@ jobs:
         cd files
         tag=$(wget -qO- -t1 -T2 "https://api.github.com/repos/iawia002/lux/releases/latest" | jq -r '.tag_name')
         export tag
-        touch release.txt
-        echo "${tag}" >> tag.txt
-        sed 's/.//' tag.txt
+        echo "$tag" >> tag.txt
+        sed -i "s/v//" tag.txt
         newtag=$(cat tag.txt)
         export newtag
         wget https://github.com/iawia002/lux/releases/latest/download/lux_${newtag}_Windows_64-bit.zip
