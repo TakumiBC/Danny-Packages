@@ -28,6 +28,7 @@ jobs:
         
     - name: Oragnise Files
       run: |
+        sudo su
         cd /.
         mkdir files
         cd files
