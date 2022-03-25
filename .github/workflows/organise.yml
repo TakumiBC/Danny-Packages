@@ -39,7 +39,7 @@ jobs:
         wget https://github.com/iawia002/lux/releases/latest/download/lux_${newtag}_Windows_64-bit.zip
         unzip lux_${newtag}_Windows_64-bit.zip
         rm -rf lux_${newtag}_Windows_64-bit.zip
-        wget https://github.com/yt-dlp/yt-dlp/releases/download/latest/yt-dlp_win.zip
+        wget https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_win.zip
         unzip yt-dlp_win.zip
         mv yt-dlp/yt-dlp.exe .
         rm -rf yt-dlp_win.zip
@@ -59,8 +59,8 @@ jobs:
           echo "::set-output name=release_tag::$(date +"%Y.%m.%d")"
           echo "::set-output name=release_date::$(date +"%Y.%m.%d")"
           touch release.txt
-          echo "Annie所需要的所有依赖" >> release.txt
-          echo "All Dependencies Annie Needs" >> release.txt
+          echo "Annie所需要的所有软件包和依赖" >> release.txt
+          echo "All Pacakages and Dependencies Annie Needs" >> release.txt
           
       - name: Upload firmware to release
         uses: softprops/action-gh-release@v1
