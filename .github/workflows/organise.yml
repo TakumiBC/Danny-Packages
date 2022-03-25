@@ -65,7 +65,6 @@ jobs:
         
       - name: Download File Folder
         uses: actions/download-artifact@v2
-        if: env.GENERATE_STATUS == 'success'
         with:
           name: bin-archive
           path: files
