@@ -45,7 +45,9 @@ jobs:
         mv yt-dlp/yt-dlp.exe .
         rm -rf yt-dlp_win.zip
         rm -rf /yt-dlp
-        ls
+        rm -rf tag.txt
+        rm -rf yt-dlp
+        pwd
 
   Upload:
     needs: [Organise]
@@ -54,6 +56,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@main
+        
+      - name : Upload artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: AnniePackages
+          path: files
 
       - name: Generate release tag
         id: tag
@@ -73,5 +81,5 @@ jobs:
           tag_name: ${{ steps.tag.outputs.release_tag }}
           body_path: release.txt
           files: |
-            /home/runner/work/Annie-Packages/Annie-Packages/files/lux.exe
-            /home/runner/work/Annie-Packages/Annie-Packages/files/yt-dlp.exe
+            /files/lux.exe
+            /files/yt-dlp.exe
