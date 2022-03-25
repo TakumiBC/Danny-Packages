@@ -42,7 +42,6 @@ jobs:
         mv yt-dlp/yt-dlp.exe .
         rm -rf yt-dlp_win.zip
         rm -rf /yt-dlp
-        cd ../
 
   Upload:
     needs: [Organise]
