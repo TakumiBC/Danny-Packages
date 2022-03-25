@@ -71,6 +71,8 @@ jobs:
           touch release.txt
           echo "Annie所需要的所有软件包和依赖" >> release.txt
           echo "All Pacakages and Dependencies Annie Needs" >> release.txt
+          pwd
+          ls
           
       - name: Upload firmware to release
         uses: softprops/action-gh-release@v1
