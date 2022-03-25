@@ -56,7 +56,7 @@ jobs:
 
       - name: Generate release tag
         run: |
-          echo "::set-output name=release_tag::$(date +"%Y.%m.%d")"
+          echo "::set-output name=release_tag::$(date +"%Y.%m.%d")-AnniePackages"
           echo "::set-output name=release_date::$(date +"%Y.%m.%d")"
           touch release.txt
           echo "Annie所需要的所有软件包和依赖" >> release.txt
