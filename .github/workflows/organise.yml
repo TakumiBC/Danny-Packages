@@ -71,4 +71,6 @@ jobs:
           name: ${{ steps.tag.outputs.release_date }}
           tag_name: ${{ steps.tag.outputs.release_tag }}
           body_path: release.txt
-          files: /home/runner/work/Annie-Packages/Annie-Packages/files
+          files: |
+            /home/runner/work/Annie-Packages/Annie-Packages/files/lux.exe
+            /home/runner/work/Annie-Packages/Annie-Packages/files/yt-dlp.exe
