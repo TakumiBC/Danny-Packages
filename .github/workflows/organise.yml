@@ -28,6 +28,8 @@ jobs:
         
     - name: Oragnise Files
       run: |
+        mkdir files
+        cd files
         tag=$(wget -qO- -t1 -T2 "https://api.github.com/repos/iawia002/lux/releases/latest" | jq -r '.tag_name')
         export tag
         echo "$tag" >> tag.txt
@@ -42,6 +44,7 @@ jobs:
         mv yt-dlp/yt-dlp.exe .
         rm -rf yt-dlp_win.zip
         rm -rf /yt-dlp
+        cd ../
 
   Upload:
     needs: [Organise]
@@ -68,6 +71,4 @@ jobs:
           name: ${{ steps.tag.outputs.release_date }}
           tag_name: ${{ steps.tag.outputs.release_tag }}
           body_path: release.txt
-          files: |
-            lux.exe
-            yt-dlp.exe
+          files: /files
