@@ -80,7 +80,7 @@ jobs:
           pwd
           ls
           
-      - name: Upload firmware to release
+      - name: Upload packages to release
         uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
