@@ -28,6 +28,7 @@ jobs:
         
     - name: Oragnise Files
       run: |
+        cd /.
         mkdir files
         cd files
         tag=$(wget -qO- -t1 -T2 "https://api.github.com/repos/iawia002/lux/releases/latest" | jq -r '.tag_name')
@@ -44,7 +45,7 @@ jobs:
         mv yt-dlp/yt-dlp.exe .
         rm -rf yt-dlp_win.zip
         rm -rf /yt-dlp
-        cd ../
+        cd /.
 
   Upload:
     needs: [Organise]
