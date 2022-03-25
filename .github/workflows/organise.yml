@@ -61,7 +61,7 @@ jobs:
         uses: actions/upload-artifact@master
         with:
           name: AnniePackages
-          path: files
+          path: /home/runner/work/Annie-Packages/Annie-Packages/files/
 
       - name: Generate release tag
         id: tag
@@ -80,6 +80,4 @@ jobs:
           name: ${{ steps.tag.outputs.release_date }}
           tag_name: ${{ steps.tag.outputs.release_tag }}
           body_path: release.txt
-          files: |
-            /files/lux.exe
-            /files/yt-dlp.exe
+          files: /home/runner/work/Annie-Packages/Annie-Packages/files/*
