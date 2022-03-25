@@ -48,6 +48,13 @@ jobs:
         rm -rf tag.txt
         rm -rf yt-dlp
         pwd
+        
+    - name: Upload Files Folder
+      uses: actions/upload-artifact@main
+      if: steps.generate.outputs.GENERATE_STATUS == 'success'
+      with:
+        name: bin-archive
+        path: /home/runner/work/Annie-Packages/Annie-Packages/files/
 
   Upload:
     needs: [Organise]
@@ -57,12 +64,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@main
         
-      - name : Upload artifact
-        uses: actions/upload-artifact@master
+      - name: Download Bin Folder
+        uses: actions/download-artifact@v2
+        if: env.GENERATE_STATUS == 'success'
         with:
-          name: AnniePackages
+          name: bin-archive
           path: /home/runner/work/Annie-Packages/Annie-Packages/files/
-
+          
       - name: Generate release tag
         id: tag
         run: |
