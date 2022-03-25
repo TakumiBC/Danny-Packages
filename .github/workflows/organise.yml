@@ -28,8 +28,6 @@ jobs:
         
     - name: Oragnise Files
       run: |
-        sudo su
-        cd /.
         mkdir files
         cd files
         tag=$(wget -qO- -t1 -T2 "https://api.github.com/repos/iawia002/lux/releases/latest" | jq -r '.tag_name')
@@ -73,4 +71,4 @@ jobs:
           name: ${{ steps.tag.outputs.release_date }}
           tag_name: ${{ steps.tag.outputs.release_tag }}
           body_path: release.txt
-          files: /files
+          files: /home/runner/work/Annie-Packages/Annie-Packages/files
