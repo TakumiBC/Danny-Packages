@@ -66,7 +66,7 @@ jobs:
       - name: Download File Folder
         uses: actions/download-artifact@v2
         with:
-          name: bin-archive
+          name: Files
           path: files
           
       - name: Generate release tag
