@@ -53,6 +53,7 @@ jobs:
         uses: actions/checkout@main
 
       - name: Generate release tag
+        id: tag
         run: |
           echo "::set-output name=release_tag::$(date +"%Y.%m.%d")-AnniePackages"
           echo "::set-output name=release_date::$(date +"%Y.%m.%d")"
@@ -61,7 +62,6 @@ jobs:
           echo "All Pacakages and Dependencies Annie Needs" >> release.txt
           
       - name: Upload firmware to release
-        id: tag
         uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
