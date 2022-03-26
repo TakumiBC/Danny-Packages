@@ -42,9 +42,9 @@ jobs:
         rm -rf lux_${newtag}_Windows_64-bit.zip
         wget https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_win.zip
         unzip yt-dlp_win.zip
-        tar -czf yt-dlp.tar.gz /yt-dlp        
+        tar -czf yt-dlp.tar.gz yt-dlp/        
         rm -rf yt-dlp_win.zip
-        rm -rf /yt-dlp
+        rm -rf yt-dlp
         rm -rf tag.txt
         pwd
         
