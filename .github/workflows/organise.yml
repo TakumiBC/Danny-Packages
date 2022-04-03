@@ -1,4 +1,4 @@
-name: Organise All Packages Needed For Annie
+name: Organise All Packages Needed For Danny
 on:
   workflow_dispatch:
   schedule:
@@ -74,8 +74,8 @@ jobs:
           echo "::set-output name=release_tag::$(date +"%Y.%m.%d")-AnniePackages"
           echo "::set-output name=release_date::$(date +"%Y.%m.%d")"
           touch release.txt
-          echo "Annie所需要的所有软件包和依赖" >> release.txt
-          echo "All Pacakages and Dependencies Annie Needs" >> release.txt
+          echo "Danny 所需要的所有软件包和依赖" >> release.txt
+          echo "All Pacakages and Dependencies Danny Needs" >> release.txt
           pwd
           ls
           
@@ -87,4 +87,4 @@ jobs:
           name: ${{ steps.tag.outputs.release_date }}
           tag_name: ${{ steps.tag.outputs.release_tag }}
           body_path: release.txt
-          files: /home/runner/work/Annie-Packages/Annie-Packages/files/*
+          files:  ${{ github.workspace }}/files/*
